@@ -25,11 +25,16 @@
                         $consulta = "SELECT * FROM mp";
                         $ejecutar = mysqli_query($conn, $consulta) or die(mysqli_error($conn));
                         ?>
-                        <select class="form-select">
+                        <label for="my-input">
+                            <?php 
+                            
+                            ?>
+                        </label>
+                        <!--<select class="form-select">
                             <option selected>Seleciona un MP</option>
                             <?php foreach ($ejecutar as $opciones) : ?>
                                 <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['nombre_mp'] ?></option>
-                            <?php endforeach ?>
+                            <?php endforeach ?>-->
                         </select>
                     </div>
 
@@ -68,20 +73,20 @@
 
                     <!--Esto es para consultar los indicadores-->
                     <?php
-                    $consulta = "SELECT * FROM indicadores";
+                    $consulta = "SELECT * FROM efectiva";
                     $ejecutar = mysqli_query($conn, $consulta) or die(mysqli_error($conn));
                     ?>
 
                     <!--Esto es para consultar las cantidades-->
                     <?php
-                    $consultar_cantidad = "SELECT * FROM cantidad WHERE id_indicadores LIKE '1'";
+                    $consultar_cantidad = "SELECT * FROM cantidad";
                     $eject_cant = mysqli_query($conn, $consultar_cantidad) or die(mysqli_error($conn));
                     ?>
 
                     <tr>
-                        <?php foreach ($ejecutar as $indicadores) : ?>
+                        <?php foreach ($ejecutar as $efectiva) : ?>
 
-                            <th scope="col-sm-7" value=<?php echo $indicadores['id'] ?>><?php echo $indicadores['indicadores'] ?></th>
+                            <th scope="col-sm-7" value=<?php echo $efectiva['id'] ?>><?php echo $efectiva['efectiva'] ?></th>
 
 
                             <!--Agregamos el comando para los inputs en fila-->
@@ -89,7 +94,7 @@
                             <!--Enero-->
                             <th>
                                 <?php foreach ($eject_cant as $cantidad) : ?>
-                                    <input class="form-control" value=<?php echo $cantidad['Enero'] ?>> </input>
+                                    <input class="form-control" value=<?php echo ['cantidad'] ?>> </input>
                                 <?php endforeach ?>
                             </th>
                             <!--Febrero-->
@@ -167,7 +172,7 @@
             </table>
 
         </table>
-    </div>  
+    </div>
 
     <br>
     <div class="form-group">

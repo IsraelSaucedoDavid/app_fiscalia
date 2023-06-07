@@ -14,7 +14,11 @@
 
     <nav class="navbar navbar-dark bg-dark">
         <div class="container">
-            <a href="index.php" class="navbar-brand">Inicio</a>
+            <div class="col-sm-4">
+                <a href="index.php" class="navbar-brand">Inicio</a>
+                <a href="efectivas.php" class="navbar-brand">Efectivas</a>
+                <a href="productividad.php" class="navbar-brand">Productividad</a>
+            </div>
         </div>
 
     </nav>
